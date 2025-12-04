@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سابر – قطع غيار إلى باب بيتك</title>
+
+    <!-- خط تاُجوال -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== شريط شعارات الماركات ===== */
+
+        .brand-strip {
+            width: 100%;
+            overflow: hidden;
+            background: #000;      /* أسود صريح */
+            padding: 12px 0;
+        }
+
+        .brand-marquee {
+            display: flex;
+            width: max-content;
+            animation: brand-marquee 20s linear infinite;
+        }
+
+        .brand-sequence {
+            display: flex;
+            gap: 40px;
+        }
+
+        .brand-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 110px;
+        }
+
+        .brand-item img {
+            height: 32px;
+            object-fit: contain;
+            margin-bottom: 4px;
+        }
+
+        .brand-name {
+            font-size: 0.75rem;
+            color: #e5e7eb;
+            letter-spacing: 0.08em;
+        }
+
+        /* حركة لا نهائية بدون فراغات */
+        @keyframes brand-marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* الكرت الأساسي */
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(20, 20, 20, 0.95);
+            border-radius: 25px;
+            box-shadow:
+                0 30px 100px rgba(0, 0, 0, 0.9),
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                0 0 60px rgba(255, 255, 255, 0.03);
+            overflow: hidden;
+            text-align: center;
+            margin: 40px 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .container:hover {
+            box-shadow:
+                0 35px 120px rgba(0, 0, 0, 0.95),
+                0 0 0 1px rgba(255, 255, 255, 0.08),
+                0 0 80px rgba(255, 255, 255, 0.05);
+        }
+
+        .hero {
+            padding: 60px 40px 40px;
+        }
+
+        .hero-title {
+            margin-bottom: 20px;
+        }
+
+        .hero-title-main {
+            font-size: 3.5rem;
+            color: #ffffff;
+            font-weight: 900;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .hero-title-sub {
+            font-size: 2rem;
+            color: #e0e0e0;
+            font-weight: 700;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+            letter-spacing: -0.3px;
+            line-height: 1.3;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 520px;
+            height: auto;
+            display: block;
+            margin: 24px auto 32px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow:
+                0 8px 25px rgba(37, 211, 102, 0.4),
+                0 0 0 0 rgba(37, 211, 102, 0.7);
+            margin-bottom: 40px;
+        }
+
+        .whatsapp-button:hover {
+            background: #20BA5A;
+            transform: translateY(-3px);
+            box-shadow:
+                0 12px 35px rgba(37, 211, 102, 0.6),
+                0 0 0 4px rgba(37, 211, 102, 0.2),
+                0 0 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-button:active {
+            transform: translateY(-1px);
+        }
+
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 20px 30px;
+            }
+
+            .hero-title-main {
+                font-size: 2.5rem;
+            }
+
+            .hero-title-sub {
+                font-size: 1.5rem;
+            }
+
+            .description {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+
+            .hero-image {
+                max-width: 100%;
+            }
+
+            .whatsapp-button {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title-main {
+                font-size: 2rem;
+            }
+
+            .hero-title-sub {
+                font-size: 1.2rem;
+            }
+
+            .description {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شريط شعارات الماركات -->
+    <div class="brand-strip">
+        <div class="brand-marquee">
+            <!-- التسلسل الأول -->
+            <div class="brand-sequence">
+                <div class="brand-item">
+                    <img src="https://www.carlogos.org/car-logos/hyundai-logo.png" alt="Hyundai">
+                    <div class="brand-name">HYUNDAI</div>
+                </div>
+                <div class="brand-item">
+                    <img src="https://www.carlogos.org/car-logos/kia-logo.png" alt="KIA">
+                    <div class="brand-name">KIA</div>
+                </div>
+                <div class="brand-item">
+                    <img src="https://www.carlogos.org/car-logos/bmw-logo.png" alt="BMW">
+                    <div class="brand-name">BMW</div>
+                </div>
+                <div class="brand-item">
+                    <img src="https://www.carlogos.org/car-logos/mercedes-benz-logo.png" alt="Mercedes">
+                    <div class="brand-name">MERCEDES</div>
+                </div>
+                <div class="brand-item">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/04/Nissan-Logo.png" alt="Nissan">
+                    <div class="brand-name">NISSAN</div>
+                </div>
+                <div class="brand-item">
+                    <img src="https://www.carlogos.org/car-logos/honda-logo.png" alt="Honda">
+                    <div class="brand-name">HONDA</div>
+                </div>
+                <div class="brand-item">
+                    <img src="https://www.carlogos.org/car-logos/toyota-logo.png" alt="Toyota">
+                    <div class="brand-name">TOYOTA</div>
+                </div>
+            </div>
+
+            <!-- التسلسل الثاني (نفسه مكرر عشان يصير لوب بدون فراغات) -->
+            <div class="brand-sequence">
+                <div class="brand-item">
+                    <img src="https://www.carlogos.org/car-logos/hyundai-logo.png" alt="Hyundai">
+                    <div class="brand-name">HYUNDAI</div>
+                </div>
+                <div class="brand-item">
+                    <img src="https://www.carlogos.org/car-logos/kia-logo.png" alt="KIA">
+                    <div class="brand-name">KIA</div>
+                </div>
+                <div class="brand-item">
+                    <img src="https://www.carlogos.org/car-logos/bmw-logo.png" alt="BMW">
+                    <div class="brand-name">BMW</div>
+                </div>
+                <div class="brand-item">
+                    <img src="https://www.carlogos.org/car-logos/mercedes-benz-logo.png" alt="Mercedes">
+                    <div class="brand-name">MERCEDES</div>
+                </div>
+                <div class="brand-item">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/04/Nissan-Logo.png" alt="Nissan">
+                    <div class="brand-name">NISSAN</div>
+                </div>
+                <div class="brand-item">
+                    <img src="https://www.carlogos.org/car-logos/honda-logo.png" alt="Honda">
+                    <div class="brand-name">HONDA</div>
+                </div>
+                <div class="brand-item">
+                    <img src="https://www.carlogos.org/car-logos/toyota-logo.png" alt="Toyota">
+                    <div class="brand-name">TOYOTA</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- الكرت الرئيسي -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-title">
+                <div class="hero-title-main">سابر</div>
+                <div class="hero-title-sub">قطع غيار إلى باب بيتك</div>
+            </div>
+
+            <p class="description">
+                نوفر لك أفضل قطع الغيار الأصلية مع خدمة التوصيل السريع إلى باب منزلك. جودة مضمونة وأسعار منافسة.
+            </p>
+
+            <img src="./spare-parts.jpg/zachary-keimig-QJWk6LLOMdQ-unsplash.jpg" alt="قطع غيار السيارات" class="hero-image">
+
+            <a href="https://wa.me/966564537711" class="whatsapp-button" target="_blank">
+                <svg class="whatsapp-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                تواصل معنا على واتساب
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
